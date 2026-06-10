@@ -250,6 +250,7 @@ input,select,textarea{font-family:var(--fb)} ul{list-style:none}
 .flt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
 .flt-btn{aspect-ratio:1;border-radius:7px;cursor:pointer;border:2px solid var(--border);transition:all var(--tr);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:6px;background:none}
 .flt-preview{width:100%;flex:1;border-radius:3px;background:linear-gradient(135deg,#87CEEB,#C8E9F7)}
+.flt-btn[data-id="rio"] .flt-preview{background:linear-gradient(160deg,#7B4FA6 0%,#C0507A 50%,#E8834A 100%);filter:none!important}
 .flt-btn.active,.flt-btn:hover{border-color:var(--sky-dark)}
 .flt-btn span{font-size:.63rem;color:var(--text-muted)}
 .flt-btn.active span{color:var(--sky-dark)}
@@ -310,3 +311,4 @@ input,select,textarea{font-family:var(--fb)} ul{list-style:none}
 @media(max-width:880px){.editor-shell{grid-template-columns:1fr;grid-template-rows:auto 1fr auto;min-height:unset}.ed-left{flex-direction:row;height:50px;width:100%;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:0 10px;order:0;gap:2px}.ed-center{order:1;min-height:360px}.ed-right{order:2;border-left:none;border-top:1px solid var(--border);max-height:330px}.tool-div{width:1px;height:26px;margin:0 3px}.sb-tabs{overflow-x:auto}}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:var(--nh);left:0;right:0;background:#fff;padding:10px 16px;box-shadow:var(--sh-lg);border-bottom:1px solid var(--border);z-index:99;gap:2px}.nav-links.open a{display:block;padding:11px 14px}.feat-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:26px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.footer-bl{justify-content:center}.support-methods{grid-template-columns:1fr}.dl-row{flex-direction:column}}
 @media(max-width:480px){#home{padding:110px 0 60px}.hero-actions{flex-direction:column;align-items:flex-start}.btn-lg{padding:14px 26px;font-size:.9rem}.gallery-grid{grid-template-columns:repeat(2,1fr)}.sec{padding:68px 0}#editor{padding:52px 0}.canvas-vp{padding:12px}.support-amount-row{gap:6px}}
+

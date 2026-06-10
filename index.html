@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Deren Photobooth</title>
+  <meta name="description" content="SkyBooth — platform photobooth digital gratis. Upload 1–5 foto, 14 template eksklusif, filter, teks, foto via kamera, download HD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="navbar">
+  <div class="container navbar-inner">
+    <a href="#home" class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-camera"></i></div>
+      SkyBooth
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#templates">Templates</a></li>
+      <li><a href="#features">Fitur</a></li>
+      <li><a href="#editor">Editor</a></li>
+      <li><a href="#support">Support</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="#editor" class="btn btn-primary btn-sm" id="navCta" style="display:none">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Mulai
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-dots"></div>
+  <div class="container hero-content">
+
+    <div class="hero-text">
+      <div class="hero-eyebrow"><i class="fa-solid fa-star"></i> Photobooth Digital Gratis</div>
+      <h1 class="hero-title">Create <em>Beautiful</em><br>Photobooth Memories</h1>
+      <p class="hero-subtitle">Upload 1–5 foto atau ambil langsung dari kamera, pilih dari 14 template eksklusif, edit dengan filter dan teks, lalu download atau bagikan lewat QR Code — semuanya gratis, tanpa login.</p>
+      <div class="hero-actions">
+        <a href="#editor" class="btn btn-primary btn-lg"><i class="fa-solid fa-wand-magic-sparkles"></i> Mulai Membuat</a>
+        <a href="#templates" class="btn btn-outline btn-lg"><i class="fa-solid fa-images"></i> Lihat Template</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">14</div><div class="hero-stat-label">Template unik</div></div>
+        <div><div class="hero-stat-num">1–5</div><div class="hero-stat-label">Foto per frame</div></div>
+        <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Gratis &amp; tanpa login</div></div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-canvas-preview">
+        <div class="preview-strip">
+          <div class="preview-strip-item"></div>
+          <div class="preview-strip-item" style="background:#A8D8EA"></div>
+          <div class="preview-strip-item" style="background:#87CEEB"></div>
+        </div>
+      </div>
+      <div class="hero-badge bt">
+        <div class="hero-badge-icon"><i class="fa-solid fa-download"></i></div>
+        <div><div style="font-size:.73rem;color:var(--text-muted)">Export</div>PNG &amp; JPG HD</div>
+      </div>
+      <div class="hero-badge bb">
+        <div class="hero-badge-icon"><i class="fa-solid fa-camera"></i></div>
+        <div><div style="font-size:.73rem;color:var(--text-muted)">Foto langsung via</div>Kamera</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ TEMPLATES ═══════════════════ -->
+<section id="templates" class="sec alt">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="sec-ey">Template</span>
+      <h2 class="sec-title">14 Template Eksklusif</h2>
+      <p class="sec-sub">Classic White, Sky Blue, Polaroid, Dark Elegance, Graduation, Birthday, Neon Night, Rose Gold, Forest Green, Pastel Dream, Vintage Cream, Modern Dark, Marble, dan Confetti.</p>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="#editor" class="btn btn-outline"><i class="fa-solid fa-arrow-right"></i> Coba Semua Template</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FEATURES ═══════════════════ -->
+<section id="features" class="sec">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="sec-ey">Fitur</span>
+      <h2 class="sec-title">Semua yang Kamu Butuhkan</h2>
+      <p class="sec-sub">Editor photobooth lengkap langsung di browser — tanpa install, tanpa login, tanpa biaya.</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-images"></i></div>
+        <h3 class="feat-title">1–5 Foto per Frame</h3>
+        <p class="feat-desc">Pilih 1 hingga 5 foto. Layout menyesuaikan otomatis: 1 foto besar, strip vertikal, grid 2×2, atau komposisi 5 foto dinamis.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-camera"></i></div>
+        <h3 class="feat-title">Foto via Kamera</h3>
+        <p class="feat-desc">Ambil foto langsung dari kamera depan atau belakang. Capture seketika langsung ke slot foto pilihanmu.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-table-cells-large"></i></div>
+        <h3 class="feat-title">14 Template Unik</h3>
+        <p class="feat-desc">Setiap template punya karakter berbeda — dari minimalis elegan, vintage, dark mode, hingga penuh warna dan festif.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-sliders"></i></div>
+        <h3 class="feat-title">Edit &amp; 9 Filter</h3>
+        <p class="feat-desc">Zoom, rotasi semua foto sekaligus, brightness, contrast. Filter: Original, B&amp;W, Vintage, Warm, Cool, Faded, Vivid, Matte, Chrome.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-font"></i></div>
+        <h3 class="feat-title">Text Editor</h3>
+        <p class="feat-desc">Tambahkan teks yang bisa di-drag. Pilih font, ukuran, dan warna. Edit langsung di canvas secara real-time.</p>
+      </article>
+      <article class="feat-card">
+        <div class="feat-icon"><i class="fa-solid fa-share-nodes"></i></div>
+        <h3 class="feat-title">Share &amp; Download HD</h3>
+        <p class="feat-desc">Download PNG/JPG 2× resolusi, generate QR Code otomatis, dan salin link share untuk dibagikan ke siapa saja.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ EDITOR ═══════════════════ -->
+<section id="editor">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="sec-ey">Editor</span>
+      <h2 class="sec-title">Buat Photoboothmu Sekarang</h2>
+      <p class="sec-sub">Pilih jumlah foto, upload atau ambil dari kamera, pilih template, edit, lalu download hasilnya.</p>
+    </div>
+
+    <div class="editor-shell">
+
+      <!-- LEFT RAIL -->
+      <aside class="ed-left">
+        <button class="tool-btn active" data-tool="upload" title="Kelola Foto"><i class="fa-solid fa-images"></i><span>Foto</span></button>
+        <div class="tool-div"></div>
+        <button class="tool-btn" data-tool="zoom"     title="Zoom &amp; Adjust"><i class="fa-solid fa-magnifying-glass-plus"></i><span>Adjust</span></button>
+        <button class="tool-btn" data-tool="filter"   title="Filter"><i class="fa-solid fa-wand-sparkles"></i><span>Filter</span></button>
+        <div class="tool-div"></div>
+        <button class="tool-btn" data-tool="template" title="Template"><i class="fa-solid fa-table-cells-large"></i><span>Tmplat</span></button>
+        <button class="tool-btn" data-tool="text"     title="Teks"><i class="fa-solid fa-font"></i><span>Teks</span></button>
+        <div class="tool-div"></div>
+        <button class="tool-btn" data-tool="export"   title="Export"><i class="fa-solid fa-share-nodes"></i><span>Export</span></button>
+      </aside>
+
+      <!-- CANVAS AREA -->
+      <div class="ed-center">
+        <div class="ed-toolbar">
+          <div class="tbg">
+            <button class="tb-btn" id="btnRotL" title="Putar kiri"><i class="fa-solid fa-rotate-left"></i></button>
+            <button class="tb-btn" id="btnRotR" title="Putar kanan"><i class="fa-solid fa-rotate-right"></i></button>
+          </div>
+          <div class="tbg">
+            <span class="tb-lbl">480 × 640 px — 2× HD Export</span>
+          </div>
+          <div class="tbg">
+            <button class="tb-btn" id="btnReset" title="Reset"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            <button id="btnGenTb" style="height:30px;padding:0 13px;border-radius:7px;background:var(--sky-dark);color:#fff;font-size:.78rem;font-weight:500;border:none;cursor:pointer;display:flex;align-items:center;gap:6px;transition:all var(--tr)">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Generate
+            </button>
+          </div>
+        </div>
+        <div class="canvas-vp">
+          <div class="canvas-wrap" id="canvasWrap">
+            <canvas id="mainCanvas" width="480" height="640"></canvas>
+            <!-- text overlay injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="ed-right">
+        <div class="sb-tabs">
+          <button class="sb-tab active" data-panel="panelPhotos">Foto</button>
+          <button class="sb-tab"        data-panel="panelAdjust">Adjust</button>
+          <button class="sb-tab"        data-panel="panelFilter">Filter</button>
+          <button class="sb-tab"        data-panel="panelTemplate">Tmplat</button>
+          <button class="sb-tab"        data-panel="panelText">Teks</button>
+          <button class="sb-tab"        data-panel="panelExport">Export</button>
+        </div>
+
+        <!-- PANEL: FOTO -->
+        <div class="sb-panel active" id="panelPhotos">
+          <div class="p-sec">
+            <span class="p-lbl">Jumlah Foto</span>
+            <div class="slot-cnt-row">
+              <span>Pilih 1 – 5</span>
+              <div class="slot-cnt-btns" id="slotCntBtns"></div>
+            </div>
+            <p style="font-size:.76rem;color:var(--text-muted);line-height:1.55;margin-bottom:14px">Layout menyesuaikan otomatis sesuai jumlah foto yang dipilih.</p>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Slot Foto</span>
+            <div class="slots-list" id="slotsList"></div>
+          </div>
+          <p style="font-size:.74rem;color:var(--text-muted);line-height:1.5;margin-top:8px">Tiap slot bisa diisi lewat upload file atau kamera. Format: JPG, PNG, WEBP.</p>
+        </div>
+
+        <!-- PANEL: ADJUST -->
+        <div class="sb-panel" id="panelAdjust">
+          <div class="p-sec">
+            <span class="p-lbl">Zoom</span>
+            <div class="p-row"><label>Ukuran</label><span id="valZoom" style="font-size:.78rem;color:var(--sky-dark);font-weight:600;min-width:36px;text-align:right">100%</span></div>
+            <input type="range" class="inp-range" id="slZoom" min="40" max="220" value="100">
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Rotasi Semua Foto</span>
+            <div class="p-row" style="gap:7px">
+              <button class="btn btn-outline btn-sm" style="flex:1;justify-content:center" onclick="document.getElementById('btnRotL').click()"><i class="fa-solid fa-rotate-left"></i> Kiri 90°</button>
+              <button class="btn btn-outline btn-sm" style="flex:1;justify-content:center" onclick="document.getElementById('btnRotR').click()"><i class="fa-solid fa-rotate-right"></i> Kanan 90°</button>
+            </div>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Brightness</span>
+            <div class="p-row"><label>Kecerahan</label><span id="valBright" style="font-size:.78rem;color:var(--sky-dark);font-weight:600;min-width:36px;text-align:right">100%</span></div>
+            <input type="range" class="inp-range" id="slBright" min="20" max="200" value="100">
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Contrast</span>
+            <div class="p-row"><label>Kontras</label><span id="valContrast" style="font-size:.78rem;color:var(--sky-dark);font-weight:600;min-width:36px;text-align:right">100%</span></div>
+            <input type="range" class="inp-range" id="slContrast" min="20" max="200" value="100">
+          </div>
+        </div>
+
+        <!-- PANEL: FILTER -->
+        <div class="sb-panel" id="panelFilter">
+          <div class="p-sec">
+            <span class="p-lbl">Pilih Filter</span>
+            <div class="flt-grid" id="fltGrid"></div>
+          </div>
+        </div>
+
+        <!-- PANEL: TEMPLATE -->
+        <div class="sb-panel" id="panelTemplate">
+          <div class="p-sec">
+            <span class="p-lbl">Pilih Template</span>
+            <div class="tpl-grid" id="tplGrid"></div>
+          </div>
+        </div>
+
+        <!-- PANEL: TEKS -->
+        <div class="sb-panel" id="panelText">
+          <div class="p-sec">
+            <span class="p-lbl">Isi Teks</span>
+            <input type="text" class="inp-txt" id="inpTxt" placeholder="Tuliskan sesuatu...">
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Font</span>
+            <select class="inp-sel" id="selFont">
+              <option value="DM Serif Display">DM Serif Display</option>
+              <option value="DM Sans">DM Sans</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Helvetica Neue">Helvetica Neue</option>
+              <option value="Courier New">Courier New</option>
+            </select>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Ukuran &amp; Warna</span>
+            <div class="p-row"><label>Ukuran (px)</label><input type="number" class="inp-num" id="inpTxtSz" min="8" max="120" value="28"></div>
+            <div class="p-row"><label>Warna</label><input type="color" class="inp-col" id="inpTxtCol" value="#2D3748"></div>
+          </div>
+          <div class="p-sec" style="display:flex;flex-direction:column;gap:7px">
+            <button class="btn btn-primary btn-sm" id="btnAddTxt" style="width:100%;justify-content:center"><i class="fa-solid fa-plus"></i> Tambah Teks</button>
+            <button class="btn btn-outline btn-sm" id="btnDelTxt" style="width:100%;justify-content:center"><i class="fa-solid fa-trash"></i> Hapus Terpilih</button>
+          </div>
+          <p style="font-size:.74rem;color:var(--text-muted);line-height:1.5;margin-top:10px">Klik teks di canvas lalu seret untuk memindahkan posisinya.</p>
+        </div>
+
+        <!-- PANEL: EXPORT -->
+        <div class="sb-panel" id="panelExport">
+          <div class="p-sec">
+            <span class="p-lbl">Generate &amp; Preview</span>
+            <button class="exp-btn primary" id="btnGenerate"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Photobooth</button>
+          </div>
+          <div class="p-sec">
+            <span class="p-lbl">Download Langsung</span>
+            <button class="exp-btn" id="btnDlPng"><i class="fa-solid fa-image"></i> Download PNG</button>
+            <button class="exp-btn" id="btnDlJpg"><i class="fa-solid fa-file-image"></i> Download JPG</button>
+          </div>
+          <p style="font-size:.74rem;color:var(--text-muted);line-height:1.5">Generate menghasilkan versi HD 2× resolusi lengkap dengan link share dan QR Code.</p>
+        </div>
+
+      </aside>
+    </div><!-- /editor-shell -->
+  </div>
+</section>
+
+<!-- ═══════════════════ SUPPORT DEVELOPER ═══════════════════ -->
+<section id="support" class="sec alt">
+  <div class="container">
+    <div class="sec-hd">
+      <span class="sec-ey">Support Developer</span>
+      <h2 class="sec-title">Dukung Pengembangan SkyBooth</h2>
+      <p class="sec-sub">SkyBooth sepenuhnya gratis dan tanpa iklan. Jika merasa terbantu, kamu bisa mendukung developer agar terus mengembangkan fitur-fitur baru.</p>
+    </div>
+
+    <div class="support-wrap">
+      <div class="support-card">
+
+        <div class="support-card-header">
+          <span class="support-heart">&#9829;</span>
+          <h3>Traktir Developer Kopi</h3>
+          <p>Dukunganmu sangat berarti untuk menjaga SkyBooth tetap gratis dan terus berkembang.</p>
+        </div>
+
+        <div class="support-body">
+          <div id="suppBody">
+            <!-- Payment methods -->
+            <span class="p-lbl" style="display:block;margin-bottom:12px">Pilih Metode</span>
+            <div class="support-methods">
+
+              <div class="supp-method support-method" data-num="085829724708">
+                <span class="support-method-logo">&#128308;</span>
+                <div class="support-method-name">Dana</div>
+                <div class="support-method-num">0858-2972-4708</div>
+                <span class="support-method-badge">Dana</span>
+              </div>
+
+              <div class="supp-method support-method" data-num="085119268943">
+                <span class="support-method-logo">&#128992;</span>
+                <div class="support-method-name">GoPay</div>
+                <div class="support-method-num">0851-1926-8943</div>
+                <span class="support-method-badge">GoPay</span>
+              </div>
+
+            </div>
+
+            <!-- Amount selection -->
+            <span class="p-lbl" style="display:block;margin-bottom:10px">Pilih Nominal</span>
+            <div class="support-amount-row">
+              <button class="supp-amt support-amount-btn active">Rp 5.000</button>
+              <button class="supp-amt support-amount-btn">Rp 10.000</button>
+              <button class="supp-amt support-amount-btn">Rp 20.000</button>
+              <button class="supp-amt support-amount-btn">Rp 50.000</button>
+            </div>
+
+            <!-- Copy number -->
+            <span class="p-lbl" style="display:block;margin-bottom:8px">Nomor Tujuan</span>
+            <div class="support-copy-row">
+              <input type="text" class="support-copy-input" id="suppNum" readonly value="085829724708">
+              <button class="btn btn-outline btn-sm" id="btnCopyNum"><i class="fa-solid fa-copy"></i> Salin</button>
+            </div>
+
+            <!-- Instructions -->
+            <p class="support-note">
+              Salin nomor di atas, buka aplikasi <strong>Dana</strong> atau <strong>GoPay</strong> kamu,<br>
+              kirim transfer ke nomor tersebut sesuai nominal yang dipilih.<br>
+              Tidak perlu konfirmasi — terima kasih telah mendukung!
+            </p>
+
+            <div style="margin-top:18px">
+              <button class="btn btn-success" id="btnSuppConfirm" style="width:100%;justify-content:center;font-size:.9rem">
+                <i class="fa-solid fa-heart"></i> Saya Sudah Transfer
+              </button>
+            </div>
+          </div>
+
+          <!-- Thank you state -->
+          <div class="support-thankyou" id="suppThanks">
+            <i class="fa-solid fa-heart" style="color:#E91E8C"></i>
+            <h4>Terima Kasih!</h4>
+            <p>Dukunganmu sangat berarti bagi kami.<br>SkyBooth akan terus berkembang berkat kamu.</p>
+            <button class="btn btn-outline btn-sm" id="btnSuppAgain" style="margin-top:16px">
+              <i class="fa-solid fa-arrow-rotate-left"></i> Kirim Lagi
+            </button>
+          </div>
+        </div><!-- /support-body -->
+
+      </div><!-- /support-card -->
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ CTA ═══════════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <div class="sec-hd" style="margin-bottom:24px">
+      <h2 class="sec-title">Siap Membuat Kenangan Indah?</h2>
+      <p class="sec-sub">Gratis, tanpa login, langsung di browser.</p>
+    </div>
+    <a href="#editor" class="btn btn-primary btn-lg"><i class="fa-solid fa-camera"></i> Mulai Membuat Sekarang</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo"><div class="nav-logo-icon"><i class="fa-solid fa-camera"></i></div> SkyBooth</div>
+        <p>Platform photobooth digital yang membantu kamu membuat dan berbagi kenangan indah secara mudah dan gratis.</p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigasi</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="#features">Fitur</a></li>
+          <li><a href="#editor">Editor</a></li>
+          <li><a href="#support">Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Fitur</div>
+        <ul>
+          <li><a href="#editor">Upload 1–5 Foto</a></li>
+          <li><a href="#editor">Foto via Kamera</a></li>
+          <li><a href="#editor">14 Template</a></li>
+          <li><a href="#editor">9 Filter Foto</a></li>
+          <li><a href="#editor">QR Code &amp; Share</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Lainnya</div>
+        <ul>
+          <li><a href="#support">Support Developer</a></li>
+          <li><a href="#">Tentang Kami</a></li>
+          <li><a href="#">Panduan</a></li>
+          <li><a href="#">Kebijakan Privasi</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 SkyBooth. Dibuat Oleh King Deren.</p>
+      <div class="footer-bl">
+        <a href="#support">Support</a>
+        <a href="#">Privasi</a>
+        <a href="#">Kontak</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SHARE MODAL ═══════════════════ -->
+<div class="modal-ov" id="shareModal">
+  <div class="modal-box">
+    <div class="modal-hd">
+      <h2 class="modal-title">Hasil Photoboothmu</h2>
+      <button class="modal-close" id="btnCloseModal"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="modal-bd">
+      <div class="res-prev-wrap">
+        <img id="resultPreview" src="" alt="Preview" style="display:none">
+        <div id="resultLoading" style="color:var(--text-muted);font-size:.875rem">Memuat preview...</div>
+      </div>
+      <span class="sh-lbl">Link Berbagi</span>
+      <div class="sh-link-row">
+        <input type="text" class="sh-link-inp" id="shareLink" readonly placeholder="Menghasilkan link...">
+        <div class="sh-link-btns">
+          <button class="btn btn-primary btn-sm" id="btnCopyLink"><i class="fa-solid fa-copy"></i> Salin</button>
+          <button class="btn btn-outline btn-sm" id="btnOpenLink"><i class="fa-solid fa-arrow-up-right-from-square"></i></button>
+        </div>
+      </div>
+      <div class="qr-wrap">
+        <canvas id="qrCanvas" width="128" height="128"></canvas>
+        <div class="qr-info">
+          <strong>QR Code</strong>
+          <p>Scan dengan kamera HP untuk membuka link hasil photoboothmu langsung.</p>
+          <button class="btn btn-outline btn-sm" id="btnDlQr" style="margin-top:9px"><i class="fa-solid fa-download"></i> Download QR</button>
+        </div>
+      </div>
+      <span class="sh-lbl">Download Hasil (HD 2×)</span>
+      <div class="dl-row">
+        <button class="exp-btn" id="btnDlPngM"><i class="fa-solid fa-image"></i> PNG</button>
+        <button class="exp-btn" id="btnDlJpgM"><i class="fa-solid fa-file-image"></i> JPG</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ CAMERA MODAL ═══════════════════ -->
+<div class="cam-ov" id="camOv">
+  <div class="cam-box">
+    <div class="cam-hd">
+      <h3><i class="fa-solid fa-camera" style="color:var(--sky-light);margin-right:7px"></i>Ambil Foto Langsung</h3>
+      <button class="cam-close" id="btnCamClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="cam-body">
+      <video id="camVideo" autoplay playsinline muted style="width:100%;max-height:310px;border-radius:12px;background:#000;display:block"></video>
+      <p class="cam-target">Mengisi slot: <strong id="camTargetLbl">Foto 1</strong></p>
+      <div class="cam-ctrls">
+        <button class="cam-switch" id="btnCamSwitch"><i class="fa-solid fa-arrows-rotate"></i> Ganti Kamera</button>
+        <button class="cam-shutter" id="btnCamShutter"><i class="fa-solid fa-camera"></i></button>
+      </div>
+      <div class="cam-flash"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LOADING ═══════════════════ -->
+<div class="loading-overlay" id="loadingOv">
+  <div class="loader"></div>
+  <p class="loading-lbl">Sedang memproses...</p>
+</div>
+
+<!-- ═══════════════════ TOAST ═══════════════════ -->
+<div class="toast-container" id="toastCont"></div>
+
+<script src="script.js"></script>
+<script>
+  /* Nav CTA visibility */
+  const navCta=document.getElementById('navCta');
+  if(navCta){
+    new IntersectionObserver(([e])=>{navCta.style.display=e.isIntersecting?'none':'inline-flex';},{threshold:.1}).observe(document.getElementById('home'));
+  }
+  /* Global keyboard */
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Escape')return;
+    document.getElementById('shareModal')?.classList.remove('open');
+    document.querySelector('.nav-links')?.classList.remove('open');
+    if(typeof closeCam==='function')closeCam();
+  });
+</script>
+</body>
+</html>

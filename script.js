@@ -166,14 +166,34 @@ function slots(n,ax,ay,aw,ah,gap){
 }
 
 function drawPhoto(ctx,img,x,y,w,h,rot,zoom,flt){
+  const isRio=S.filter==='rio';
   ctx.save();
   ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();
-  ctx.filter=flt;
+  ctx.filter=isRio?'contrast(115%) saturate(110%) brightness(102%)':flt;
   const sc=zoom/100,cx=x+w/2,cy=y+h/2;
   ctx.translate(cx,cy);ctx.rotate(rot*Math.PI/180);ctx.scale(sc,sc);
   const ratio=Math.max(w/img.width,h/img.height);
   ctx.drawImage(img,-img.width*ratio/2,-img.height*ratio/2,img.width*ratio,img.height*ratio);
   ctx.restore();ctx.filter='none';
+  /* Rio De Janeiro — purple-shadow + warm-highlight gradient blend overlay */
+  if(isRio){
+    ctx.save();
+    ctx.beginPath();ctx.rect(x,y,w,h);ctx.clip();
+    const g=ctx.createLinearGradient(x,y,x,y+h);
+    g.addColorStop(0,'rgba(80,20,130,.32)');
+    g.addColorStop(0.38,'rgba(155,45,100,.20)');
+    g.addColorStop(0.72,'rgba(205,75,35,.15)');
+    g.addColorStop(1,'rgba(175,65,15,.22)');
+    ctx.globalCompositeOperation='multiply';
+    ctx.fillStyle=g;ctx.fillRect(x,y,w,h);
+    const rg=ctx.createRadialGradient(x+w*.5,y+h*.22,0,x+w*.5,y+h*.22,w*.85);
+    rg.addColorStop(0,'rgba(255,205,130,.12)');
+    rg.addColorStop(1,'rgba(255,205,130,0)');
+    ctx.globalCompositeOperation='screen';
+    ctx.fillStyle=rg;ctx.fillRect(x,y,w,h);
+    ctx.globalCompositeOperation='source-over';
+    ctx.restore();
+  }
 }
 
 function drawEmpty(ctx,x,y,w,h,idx){
@@ -268,7 +288,7 @@ function buildFlt(){
   const p=[];
   if(S.bright!==100)p.push(`brightness(${S.bright}%)`);
   if(S.contrast!==100)p.push(`contrast(${S.contrast}%)`);
-  const m={bw:'grayscale(100%)',vintage:'sepia(60%) contrast(108%) brightness(94%)',warm:'saturate(130%) hue-rotate(-12deg)',cool:'saturate(75%) hue-rotate(22deg)',faded:'brightness(112%) contrast(82%) saturate(68%)',vivid:'saturate(160%) contrast(108%)',matte:'contrast(90%) saturate(80%) brightness(105%)',chrome:'contrast(120%) saturate(0%) brightness(110%)'};
+  const m={bw:'grayscale(100%)',vintage:'sepia(60%) contrast(108%) brightness(94%)',warm:'saturate(130%) hue-rotate(-12deg)',cool:'saturate(75%) hue-rotate(22deg)',faded:'brightness(112%) contrast(82%) saturate(68%)',vivid:'saturate(160%) contrast(108%)',matte:'contrast(90%) saturate(80%) brightness(105%)',chrome:'contrast(120%) saturate(0%) brightness(110%)',rio:'contrast(115%) saturate(130%) brightness(105%) hue-rotate(-15deg) sepia(20%)'};
   if(m[S.filter])p.push(m[S.filter]);
   return p.length?p.join(' '):'none';
 }
@@ -305,6 +325,7 @@ const FLTS=[
   {id:'cool',l:'Cool',css:'saturate(75%) hue-rotate(22deg)'},{id:'faded',l:'Faded',css:'brightness(112%) contrast(82%) saturate(68%)'},
   {id:'vivid',l:'Vivid',css:'saturate(160%) contrast(108%)'},{id:'matte',l:'Matte',css:'contrast(90%) saturate(80%)'},
   {id:'chrome',l:'Chrome',css:'contrast(120%) saturate(0%) brightness(110%)'},
+  {id:'rio',l:'Rio De J.',css:'contrast(115%) saturate(130%) brightness(105%) hue-rotate(-15deg) sepia(20%)'},
 ];
 function buildFltGrid(){
   const g=document.getElementById('fltGrid');if(!g)return;g.innerHTML='';
@@ -628,3 +649,4 @@ function initSupport(){
   // Select first method by default
   const first=document.querySelector('.supp-method');if(first)first.click();
 }
+

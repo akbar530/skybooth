@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Deren Photobooth</title>
+  <title>SkyBooth — Create Beautiful Photobooth Memories</title>
   <meta name="description" content="SkyBooth — platform photobooth digital gratis. Upload 1–5 foto, 14 template eksklusif, filter, teks, foto via kamera, download HD.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -157,6 +157,8 @@
         <button class="tool-btn" data-tool="filter"   title="Filter"><i class="fa-solid fa-wand-sparkles"></i><span>Filter</span></button>
         <div class="tool-div"></div>
         <button class="tool-btn" data-tool="template" title="Template"><i class="fa-solid fa-table-cells-large"></i><span>Tmplat</span></button>
+        <button class="tool-btn" data-tool="frame" title="Frame Lucu"><i class="fa-solid fa-face-laugh"></i><span>Frame</span></button>
+        <button class="tool-btn" data-tool="sticker" title="Stiker"><i class="fa-solid fa-face-smile-wink"></i><span>Stiker</span></button>
         <button class="tool-btn" data-tool="text"     title="Teks"><i class="fa-solid fa-font"></i><span>Teks</span></button>
         <div class="tool-div"></div>
         <button class="tool-btn" data-tool="export"   title="Export"><i class="fa-solid fa-share-nodes"></i><span>Export</span></button>
@@ -194,6 +196,8 @@
           <button class="sb-tab"        data-panel="panelAdjust">Adjust</button>
           <button class="sb-tab"        data-panel="panelFilter">Filter</button>
           <button class="sb-tab"        data-panel="panelTemplate">Tmplat</button>
+          <button class="sb-tab"        data-panel="panelFrame">Frame</button>
+          <button class="sb-tab"        data-panel="panelSticker">Stiker</button>
           <button class="sb-tab"        data-panel="panelText">Teks</button>
           <button class="sb-tab"        data-panel="panelExport">Export</button>
         </div>
@@ -205,6 +209,11 @@
             <div class="slot-cnt-row">
               <span>Pilih 1 – 5</span>
               <div class="slot-cnt-btns" id="slotCntBtns"></div>
+            </div>
+            <span class="p-lbl" style="display:block;margin-bottom:8px">Rasio Ukuran</span>
+            <div class="ratio-row">
+              <button class="ratio-btn active" data-ratio="3:4"><i class="fa-solid fa-mobile-screen"></i> 3:4 <span class="ratio-badge">Default</span></button>
+              <button class="ratio-btn" data-ratio="9:16"><i class="fa-solid fa-mobile-screen-button"></i> 9:16 <span class="ratio-badge">Story</span></button>
             </div>
             <p style="font-size:.76rem;color:var(--text-muted);line-height:1.55;margin-bottom:14px">Layout menyesuaikan otomatis sesuai jumlah foto yang dipilih.</p>
           </div>
@@ -255,6 +264,33 @@
             <span class="p-lbl">Pilih Template</span>
             <div class="tpl-grid" id="tplGrid"></div>
           </div>
+        </div>
+
+        <!-- PANEL: FRAME LUCU -->
+        <div class="sb-panel" id="panelFrame">
+          <div class="p-sec">
+            <span class="p-lbl">Frame Lucu</span>
+            <p style="font-size:.74rem;color:var(--text-muted);line-height:1.5;margin-bottom:10px">Frame digambar di atas foto. Pilih "Tidak Ada" untuk menonaktifkan.</p>
+            <div class="ff-grid" id="funnyFrameGrid"></div>
+          </div>
+        </div>
+
+        <!-- PANEL: STIKER -->
+        <div class="sb-panel" id="panelSticker">
+          <div class="p-sec">
+            <span class="p-lbl">Pilih Stiker</span>
+            <div class="stk-tabs" id="stickerTabs"></div>
+            <div class="stk-grid" id="stickerGrid"></div>
+          </div>
+          <div class="p-sec" style="margin-top:10px">
+            <span class="p-lbl">Import dari Galeri</span>
+            <button class="exp-btn" id="btnImportSticker"><i class="fa-solid fa-image"></i> Import Gambar dari Galeri</button>
+          </div>
+          <div class="p-sec" style="display:flex;gap:7px;margin-top:4px">
+            <button class="btn btn-outline btn-sm" id="btnDelSticker" style="flex:1;justify-content:center"><i class="fa-solid fa-trash"></i> Hapus Terpilih</button>
+            <button class="btn btn-ghost btn-sm" id="btnClearStickers" style="flex:1;justify-content:center"><i class="fa-solid fa-xmark"></i> Hapus Semua</button>
+          </div>
+          <p style="font-size:.74rem;color:var(--text-muted);line-height:1.5;margin-top:8px">Klik stiker lalu seret untuk memindahkan. Gunakan tombol + / − untuk mengubah ukuran.</p>
         </div>
 
         <!-- PANEL: TEKS -->
@@ -328,17 +364,17 @@
             <span class="p-lbl" style="display:block;margin-bottom:12px">Pilih Metode</span>
             <div class="support-methods">
 
-              <div class="supp-method support-method" data-num="085829724708">
+              <div class="supp-method support-method" data-num="081234567890">
                 <span class="support-method-logo">&#128308;</span>
                 <div class="support-method-name">Dana</div>
-                <div class="support-method-num">0858-2972-4708</div>
+                <div class="support-method-num">0812-3456-7890</div>
                 <span class="support-method-badge">Dana</span>
               </div>
 
-              <div class="supp-method support-method" data-num="085119268943">
+              <div class="supp-method support-method" data-num="081234567890">
                 <span class="support-method-logo">&#128992;</span>
                 <div class="support-method-name">GoPay</div>
-                <div class="support-method-num">0851-1926-8943</div>
+                <div class="support-method-num">0812-3456-7890</div>
                 <span class="support-method-badge">GoPay</span>
               </div>
 
@@ -356,7 +392,7 @@
             <!-- Copy number -->
             <span class="p-lbl" style="display:block;margin-bottom:8px">Nomor Tujuan</span>
             <div class="support-copy-row">
-              <input type="text" class="support-copy-input" id="suppNum" readonly value="085829724708">
+              <input type="text" class="support-copy-input" id="suppNum" readonly value="081234567890">
               <button class="btn btn-outline btn-sm" id="btnCopyNum"><i class="fa-solid fa-copy"></i> Salin</button>
             </div>
 
@@ -441,7 +477,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 SkyBooth. Dibuat Oleh King Deren.</p>
+      <p>&copy; 2025 SkyBooth. Dibuat dengan sepenuh hati untuk semua momen spesial.</p>
       <div class="footer-bl">
         <a href="#support">Support</a>
         <a href="#">Privasi</a>
@@ -500,6 +536,7 @@
       <p class="cam-target">Mengisi slot: <strong id="camTargetLbl">Foto 1</strong></p>
       <div class="cam-ctrls">
         <button class="cam-switch" id="btnCamSwitch"><i class="fa-solid fa-arrows-rotate"></i> Ganti Kamera</button>
+        <button class="cam-mirror" id="btnCamMirror"><i class="fa-solid fa-left-right"></i> Mirror</button>
         <button class="cam-shutter" id="btnCamShutter"><i class="fa-solid fa-camera"></i></button>
       </div>
       <div class="cam-flash"></div>

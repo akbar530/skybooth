@@ -312,3 +312,49 @@ input,select,textarea{font-family:var(--fb)} ul{list-style:none}
 @media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.nav-links.open{display:flex;flex-direction:column;position:fixed;top:var(--nh);left:0;right:0;background:#fff;padding:10px 16px;box-shadow:var(--sh-lg);border-bottom:1px solid var(--border);z-index:99;gap:2px}.nav-links.open a{display:block;padding:11px 14px}.feat-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr;gap:26px}.footer-bottom{flex-direction:column;gap:10px;text-align:center}.footer-bl{justify-content:center}.support-methods{grid-template-columns:1fr}.dl-row{flex-direction:column}}
 @media(max-width:480px){#home{padding:110px 0 60px}.hero-actions{flex-direction:column;align-items:flex-start}.btn-lg{padding:14px 26px;font-size:.9rem}.gallery-grid{grid-template-columns:repeat(2,1fr)}.sec{padding:68px 0}#editor{padding:52px 0}.canvas-vp{padding:12px}.support-amount-row{gap:6px}}
 
+/* ═══════════ v5 ADDITIONS ═══════════ */
+
+/* Ratio switch buttons */
+.ratio-row{display:flex;gap:8px;margin-bottom:14px}
+.ratio-btn{flex:1;padding:9px 8px;border:1.5px solid var(--border);border-radius:var(--r-sm);font-size:.82rem;font-weight:500;cursor:pointer;background:none;color:var(--text-light);transition:all var(--tr);display:flex;align-items:center;justify-content:center;gap:6px}
+.ratio-btn.active,.ratio-btn:hover{background:var(--sky-dark);color:#fff;border-color:var(--sky-dark)}
+.ratio-badge{font-size:.65rem;background:rgba(255,255,255,.25);padding:1px 5px;border-radius:4px}
+
+/* Funny frame grid */
+.ff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.ff-item{border-radius:8px;cursor:pointer;border:2px solid var(--border);transition:all var(--tr);position:relative;overflow:hidden;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--sky-pale)}
+.ff-item canvas{width:100%;height:100%;display:block}
+.ff-item.sel,.ff-item:hover{border-color:var(--sky-dark)}
+.ff-lbl{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 100%);color:#fff;font-size:.6rem;font-weight:500;text-align:center;padding:8px 3px 4px}
+
+/* Sticker panel */
+.stk-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:10px}
+.stk-tab{padding:5px 10px;border-radius:100px;border:1.5px solid var(--border);font-size:.75rem;cursor:pointer;background:none;color:var(--text-light);transition:all var(--tr)}
+.stk-tab.active,.stk-tab:hover{background:var(--sky-dark);color:#fff;border-color:var(--sky-dark)}
+.stk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-height:200px;overflow-y:auto}
+.stk-emoji{aspect-ratio:1;border-radius:8px;border:1.5px solid var(--border);font-size:1.4rem;cursor:pointer;transition:all var(--tr);background:var(--sky-pale);display:flex;align-items:center;justify-content:center;padding:4px}
+.stk-emoji:hover{border-color:var(--sky-dark);transform:scale(1.15);background:var(--sky-light)}
+
+/* Sticker overlay layer */
+.sticker-layer{position:absolute;inset:0;pointer-events:none;z-index:11}
+.stk-item{position:absolute;cursor:move;pointer-events:all;user-select:none;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;line-height:1;border:1.5px dashed transparent;border-radius:4px;padding:2px}
+.stk-item:hover,.stk-item.sel{border-color:var(--sky-dark)}
+.stk-main-txt{pointer-events:none;display:block}
+.stk-del{position:absolute;top:-10px;right:-10px;width:18px;height:18px;border-radius:50%;background:var(--danger);color:#fff;font-size:.7rem;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;opacity:0;transition:opacity var(--tr);line-height:1;padding:0;z-index:5}
+.stk-sz{position:absolute;bottom:-10px;width:18px;height:18px;border-radius:50%;background:var(--sky-dark);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;opacity:0;transition:opacity var(--tr);z-index:5;padding:0}
+.stk-sz-minus{right:2px}
+.stk-sz:first-of-type{left:2px}
+.stk-item:hover .stk-del,.stk-item.sel .stk-del,
+.stk-item:hover .stk-sz,.stk-item.sel .stk-sz{opacity:1}
+
+/* Camera mirror button */
+.cam-mirror{padding:7px 14px;border-radius:var(--r-sm);background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);font-size:.8rem;cursor:pointer;transition:all var(--tr)}
+.cam-mirror:hover{background:rgba(255,255,255,.2)}
+
+/* Filter group label */
+.flt-group-label{font-size:.68rem;font-weight:700;color:var(--sky-dark);letter-spacing:.05em;text-transform:uppercase;margin:8px 0 4px;padding:0 2px;grid-column:1/-1}
+/* Override flt-grid for wider layout with groups */
+.flt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+
+/* Tool btn for sticker + frame */
+.tool-btn[data-tool="frame"] i,.tool-btn[data-tool="sticker"] i{font-size:.88rem}

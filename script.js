@@ -204,6 +204,227 @@ TPL['modern-dark']=mkTpl((c,w,h)=>{c.fillStyle='#0D1117';c.fillRect(0,0,w,h);c.f
 TPL['marble-white']=mkTpl((c,w,h)=>{c.fillStyle='#F8F8F6';c.fillRect(0,0,w,h);const r=rng(31);c.strokeStyle='rgba(180,180,170,.25)';c.lineWidth=.8;for(let i=0;i<10;i++){c.beginPath();c.moveTo(r()*w,0);c.bezierCurveTo(r()*w,r()*h,r()*w,r()*h,r()*w,h);c.stroke();}c.strokeStyle='#C8C0B4';c.lineWidth=3;c.strokeRect(7,7,w-14,h-14);},{t:18,r:18,b:18,l:18},8);
 TPL['confetti']=mkTpl((c,w,h)=>{c.fillStyle='#FFFDE7';c.fillRect(0,0,w,h);const r=rng(55);const cols=['#FF6B6B','#4ECDC4','#45B7D1','#96CEB4','#FFEAA7','#DDA0DD'];for(let i=0;i<60;i++){c.fillStyle=cols[i%cols.length];c.globalAlpha=.5;c.save();c.translate(r()*w,r()*h);c.rotate(r()*Math.PI*2);c.fillRect(-4,-2,8,4);c.restore();}c.globalAlpha=1;c.strokeStyle='#E8D44D';c.lineWidth=3;c.strokeRect(4,4,w-8,h-8);},{t:16,r:14,b:16,l:14},8);
 
+/* ── 16 NEW TEMPLATES ── */
+
+/* 15. Sunset Glow — warm orange-pink gradient */
+TPL['sunset-glow']=mkTpl((c,w,h)=>{
+  const g=c.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,'#FF6B35');g.addColorStop(.4,'#F7931E');g.addColorStop(.7,'#FFD23F');g.addColorStop(1,'#FF4B8B');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  c.strokeStyle='rgba(255,255,255,.35)';c.lineWidth=6;c.strokeRect(6,6,w-12,h-12);
+  c.strokeStyle='rgba(255,255,255,.15)';c.lineWidth=2;c.strokeRect(14,14,w-28,h-28);
+},{t:22,r:20,b:22,l:20},8);
+
+/* 16. Midnight Blue — deep navy with silver accents */
+TPL['midnight-blue']=mkTpl((c,w,h)=>{
+  const g=c.createLinearGradient(0,0,w,h);
+  g.addColorStop(0,'#0F0C29');g.addColorStop(.5,'#302B63');g.addColorStop(1,'#24243E');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  // Stars
+  const r=rng(42);c.fillStyle='#fff';
+  for(let i=0;i<40;i++){c.globalAlpha=.3+r()*.7;c.beginPath();c.arc(r()*w,r()*h,r()*1.5,0,Math.PI*2);c.fill();}
+  c.globalAlpha=1;
+  c.strokeStyle='rgba(192,192,255,.5)';c.lineWidth=1.5;c.strokeRect(8,8,w-16,h-16);
+},{t:20,r:18,b:20,l:18},7);
+
+/* 17. Cherry Blossom — soft pink Japanese style */
+TPL['cherry-blossom']=mkTpl((c,w,h)=>{
+  c.fillStyle='#FFF0F5';c.fillRect(0,0,w,h);
+  // Petal scatter background
+  const r=rng(88);c.font=`${Math.min(w,h)*.05}px serif`;c.textAlign='center';c.textBaseline='middle';
+  for(let i=0;i<20;i++){c.globalAlpha=.12+r()*.2;c.save();c.translate(r()*w,r()*h);c.rotate(r()*Math.PI*2);c.fillText('🌸',0,0);c.restore();}
+  c.globalAlpha=1;
+  c.strokeStyle='#FFB7C5';c.lineWidth=5;c.strokeRect(5,5,w-10,h-10);
+  c.strokeStyle='#FF9AAD';c.lineWidth=1.5;c.strokeRect(13,13,w-26,h-26);
+},{t:20,r:18,b:20,l:18},8);
+
+/* 18. Ocean Wave — deep teal with wave pattern */
+TPL['ocean-wave']=mkTpl((c,w,h)=>{
+  const g=c.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,'#006994');g.addColorStop(.5,'#0099CC');g.addColorStop(1,'#00CED1');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  // Wave lines
+  c.strokeStyle='rgba(255,255,255,.15)';c.lineWidth=2;
+  for(let y=20;y<h;y+=28){
+    c.beginPath();
+    for(let x=0;x<w;x+=8){c.lineTo(x,y+Math.sin((x/w)*Math.PI*4)*6);}
+    c.stroke();
+  }
+  c.strokeStyle='rgba(255,255,255,.5)';c.lineWidth=3;c.strokeRect(6,6,w-12,h-12);
+},{t:20,r:16,b:20,l:16},8);
+
+/* 19. Gold Luxe — premium black and gold */
+TPL['gold-luxe']=mkTpl((c,w,h)=>{
+  c.fillStyle='#1A1400';c.fillRect(0,0,w,h);
+  // Gold shimmer
+  const g=c.createRadialGradient(w/2,h/2,0,w/2,h/2,h*.6);
+  g.addColorStop(0,'rgba(212,175,55,.12)');g.addColorStop(1,'transparent');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  // Triple gold border
+  ['#D4AF37','#F5D76E','#B8860B'].forEach((col,i)=>{
+    c.strokeStyle=col;c.lineWidth=i===1?1:2.5;c.globalAlpha=i===1?.4:1;
+    c.strokeRect(5+i*5,5+i*5,w-10-i*10,h-10-i*10);
+  });
+  c.globalAlpha=1;
+  // Corner ornaments
+  const sz=Math.min(w,h)*.06;c.fillStyle='#D4AF37';c.font=`${sz}px serif`;c.textAlign='center';c.textBaseline='middle';
+  [[sz,sz],[w-sz,sz],[sz,h-sz],[w-sz,h-sz]].forEach(p=>c.fillText('◆',p[0],p[1]));
+},{t:28,r:24,b:28,l:24},6);
+
+/* 20. Lavender Fields */
+TPL['lavender']=mkTpl((c,w,h)=>{
+  const g=c.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,'#E8D5F5');g.addColorStop(.5,'#D4B8E0');g.addColorStop(1,'#C9A0DC');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  c.strokeStyle='#9B59B6';c.lineWidth=4;c.strokeRect(5,5,w-10,h-10);
+  c.strokeStyle='rgba(255,255,255,.5)';c.lineWidth=2;c.strokeRect(12,12,w-24,h-24);
+  // Dot pattern
+  const r=rng(61);c.fillStyle='rgba(155,89,182,.15)';
+  for(let i=0;i<30;i++){c.beginPath();c.arc(r()*w,r()*h,2+r()*4,0,Math.PI*2);c.fill();}
+},{t:20,r:18,b:20,l:18},8);
+
+/* 21. Retro 90s — bold pop colors */
+TPL['retro-90s']=mkTpl((c,w,h)=>{
+  c.fillStyle='#FFFF00';c.fillRect(0,0,w,h);
+  // Thick colored stripes top and bottom
+  c.fillStyle='#FF00FF';c.fillRect(0,0,w,20);
+  c.fillStyle='#00FFFF';c.fillRect(0,h-20,w,20);
+  c.fillStyle='#FF0000';c.fillRect(0,0,12,h);
+  c.fillStyle='#0000FF';c.fillRect(w-12,0,12,h);
+  // Zigzag
+  c.strokeStyle='#FF6600';c.lineWidth=3;c.beginPath();
+  for(let x=12;x<w-12;x+=16){const mid=x+8;c.lineTo(mid,28+(x%32===0?0:8));}
+  c.stroke();
+},{t:30,r:22,b:30,l:22},8);
+
+/* 22. Minimalist Black */
+TPL['minimal-black']=mkTpl((c,w,h)=>{
+  c.fillStyle='#111';c.fillRect(0,0,w,h);
+  c.strokeStyle='#333';c.lineWidth=1;c.strokeRect(10,10,w-20,h-20);
+  c.fillStyle='#222';c.fillRect(0,h-50,w,50);
+  c.fillStyle='#444';c.fillRect(0,h-51,w,1);
+},{t:18,r:18,b:62,l:18},7);
+
+/* 23. Watercolor Blue */
+TPL['watercolor-blue']=mkTpl((c,w,h)=>{
+  c.fillStyle='#EEF6FF';c.fillRect(0,0,w,h);
+  // Watercolor blobs
+  const r=rng(22);
+  const blobs=[[w*.1,h*.1,'rgba(100,180,255,.18)',80],[w*.85,h*.15,'rgba(70,130,220,.14)',70],[w*.2,h*.8,'rgba(120,200,255,.16)',90],[w*.8,h*.85,'rgba(80,150,240,.13)',75]];
+  blobs.forEach(([bx,by,bc,br])=>{const g=c.createRadialGradient(bx,by,0,bx,by,br);g.addColorStop(0,bc);g.addColorStop(1,'transparent');c.fillStyle=g;c.fillRect(0,0,w,h);});
+  c.strokeStyle='#7EC8E3';c.lineWidth=3;c.strokeRect(6,6,w-12,h-12);
+},{t:18,r:16,b:18,l:16},8);
+
+/* 24. Festive Red — Chinese New Year / Valentine */
+TPL['festive-red']=mkTpl((c,w,h)=>{
+  c.fillStyle='#C0392B';c.fillRect(0,0,w,h);
+  // Gold ornament lines
+  c.strokeStyle='#F39C12';c.lineWidth=3;c.strokeRect(6,6,w-12,h-12);
+  c.strokeStyle='rgba(243,156,18,.4)';c.lineWidth=1;c.strokeRect(14,14,w-28,h-28);
+  // Corner diamonds
+  const sz=Math.min(w,h)*.06;c.fillStyle='#F39C12';c.font=`${sz}px serif`;c.textAlign='center';c.textBaseline='middle';
+  [[sz,sz],[w-sz,sz],[sz,h-sz],[w-sz,h-sz],[w/2,sz*.7],[w/2,h-sz*.7]].forEach(p=>c.fillText('◆',p[0],p[1]));
+},{t:22,r:18,b:22,l:18},8);
+
+/* 25. Denim — casual blue jeans texture */
+TPL['denim']=mkTpl((c,w,h)=>{
+  c.fillStyle='#2C5282';c.fillRect(0,0,w,h);
+  // Diagonal stitch lines
+  c.strokeStyle='rgba(255,255,255,.07)';c.lineWidth=1;
+  for(let i=-h;i<w+h;i+=12){c.beginPath();c.moveTo(i,0);c.lineTo(i+h,h);c.stroke();}
+  c.strokeStyle='#4A90D9';c.lineWidth=5;c.strokeRect(5,5,w-10,h-10);
+  c.strokeStyle='rgba(255,255,255,.2)';c.lineWidth=1.5;c.strokeRect(13,13,w-26,h-26);
+},{t:20,r:18,b:20,l:18},8);
+
+/* 26. Spring Garden — fresh green & white */
+TPL['spring-garden']=mkTpl((c,w,h)=>{
+  c.fillStyle='#F0FFF0';c.fillRect(0,0,w,h);
+  // Green frame with leaf corners
+  c.strokeStyle='#48BB78';c.lineWidth=5;c.strokeRect(5,5,w-10,h-10);
+  c.strokeStyle='#9AE6B4';c.lineWidth=1.5;c.strokeRect(13,13,w-26,h-26);
+  const sz=Math.min(w,h)*.07;c.font=`${sz}px serif`;c.textAlign='center';c.textBaseline='middle';
+  [[sz*.8,sz*.8],[w-sz*.8,sz*.8],[sz*.8,h-sz*.8],[w-sz*.8,h-sz*.8]].forEach(p=>c.fillText('🍃',p[0],p[1]));
+},{t:20,r:18,b:20,l:18},8);
+
+/* 27. Coral Reef */
+TPL['coral-reef']=mkTpl((c,w,h)=>{
+  const g=c.createLinearGradient(0,0,0,h);
+  g.addColorStop(0,'#FF6B6B');g.addColorStop(.5,'#FF8E53');g.addColorStop(1,'#FE6B8B');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  c.strokeStyle='rgba(255,255,255,.4)';c.lineWidth=5;c.strokeRect(5,5,w-10,h-10);
+  c.strokeStyle='rgba(255,255,255,.2)';c.lineWidth=1.5;c.strokeRect(13,13,w-26,h-26);
+},{t:18,r:16,b:18,l:16},8);
+
+/* 28. Purple Galaxy */
+TPL['purple-galaxy']=mkTpl((c,w,h)=>{
+  c.fillStyle='#0D0019';c.fillRect(0,0,w,h);
+  const g=c.createRadialGradient(w*.3,h*.4,0,w*.3,h*.4,w*.8);
+  g.addColorStop(0,'rgba(138,43,226,.35)');g.addColorStop(.5,'rgba(75,0,130,.2)');g.addColorStop(1,'transparent');
+  c.fillStyle=g;c.fillRect(0,0,w,h);
+  const g2=c.createRadialGradient(w*.7,h*.6,0,w*.7,h*.6,w*.6);
+  g2.addColorStop(0,'rgba(0,191,255,.2)');g2.addColorStop(1,'transparent');
+  c.fillStyle=g2;c.fillRect(0,0,w,h);
+  const r=rng(99);c.fillStyle='#fff';
+  for(let i=0;i<60;i++){c.globalAlpha=.2+r()*.8;c.beginPath();c.arc(r()*w,r()*h,r()*.8,0,Math.PI*2);c.fill();}
+  c.globalAlpha=1;
+  c.shadowColor='#8A2BE2';c.shadowBlur=8;c.strokeStyle='rgba(138,43,226,.6)';c.lineWidth=2;c.strokeRect(7,7,w-14,h-14);c.shadowBlur=0;
+},{t:18,r:16,b:18,l:16},7);
+
+/* 29. Aesthetic Beige */
+TPL['aesthetic-beige']=mkTpl((c,w,h)=>{
+  c.fillStyle='#F5F0E8';c.fillRect(0,0,w,h);
+  // Thin clean border
+  c.strokeStyle='#C9B99A';c.lineWidth=2;c.strokeRect(6,6,w-12,h-12);
+  // Bottom text area with subtle line
+  c.fillStyle='#EDE8DF';c.fillRect(0,h-52,w,52);
+  c.strokeStyle='#C9B99A';c.lineWidth=1;c.strokeRect(6,h-52,w-12,1);
+  // Corner dots
+  c.fillStyle='#C9B99A';
+  [[8,8],[w-8,8],[8,h-8],[w-8,h-8]].forEach(([x,y])=>{c.beginPath();c.arc(x,y,3,0,Math.PI*2);c.fill();});
+},{t:20,r:18,b:64,l:18},8);
+
+/* 30. Cyberpunk Yellow */
+TPL['cyberpunk']=mkTpl((c,w,h)=>{
+  c.fillStyle='#0A0A0A';c.fillRect(0,0,w,h);
+  // Yellow accent bar left
+  c.fillStyle='#FFE000';c.fillRect(0,0,8,h);
+  c.fillStyle='rgba(255,224,0,.15)';c.fillRect(8,0,4,h);
+  // Scan lines
+  c.fillStyle='rgba(255,255,255,.03)';
+  for(let y=0;y<h;y+=4){c.fillRect(0,y,w,2);}
+  // Border
+  c.strokeStyle='#FFE000';c.lineWidth=2;c.strokeRect(16,8,w-24,h-16);
+  c.strokeStyle='rgba(255,224,0,.3)';c.lineWidth=1;c.strokeRect(20,12,w-32,h-24);
+},{t:18,r:16,b:18,l:28},7);
+
+const TPL_LIST=[
+  // Original 14
+  {id:'classic-white',label:'Classic White'},{id:'sky-blue',label:'Sky Blue'},
+  {id:'polaroid',label:'Polaroid'},{id:'dark-elegance',label:'Dark Elegance'},
+  {id:'graduation',label:'Graduation'},{id:'birthday',label:'Birthday'},
+  {id:'neon-night',label:'Neon Night'},{id:'rose-gold',label:'Rose Gold'},
+  {id:'forest-green',label:'Forest Green'},{id:'pastel-dream',label:'Pastel Dream'},
+  {id:'vintage-cream',label:'Vintage Cream'},{id:'modern-dark',label:'Modern Dark'},
+  {id:'marble-white',label:'Marble'},{id:'confetti',label:'Confetti'},
+  // New 16
+  {id:'sunset-glow',label:'Sunset Glow'},
+  {id:'midnight-blue',label:'Midnight Blue'},
+  {id:'cherry-blossom',label:'Cherry Blossom'},
+  {id:'ocean-wave',label:'Ocean Wave'},
+  {id:'gold-luxe',label:'Gold Luxe'},
+  {id:'lavender',label:'Lavender'},
+  {id:'retro-90s',label:'Retro 90s'},
+  {id:'minimal-black',label:'Minimal Black'},
+  {id:'watercolor-blue',label:'Watercolor'},
+  {id:'festive-red',label:'Festive Red'},
+  {id:'denim',label:'Denim'},
+  {id:'spring-garden',label:'Spring Garden'},
+  {id:'coral-reef',label:'Coral Reef'},
+  {id:'purple-galaxy',label:'Purple Galaxy'},
+  {id:'aesthetic-beige',label:'Aesthetic Beige'},
+  {id:'cyberpunk',label:'Cyberpunk'},
+];
+
 /* ── FUNNY FRAMES (drawn on top of photos as decorative overlay) ── */
 /* Each funny frame is a function: drawFunnyFrame(ctx, w, h) */
 const FUNNY_FRAMES={};
@@ -829,3 +1050,4 @@ function initSupport(){
   document.getElementById('btnSuppAgain')?.addEventListener('click',()=>{const body=document.getElementById('suppBody'),ty=document.getElementById('suppThanks');if(body&&ty){body.style.display='block';ty.style.display='none';}});
   const first=document.querySelector('.supp-method');if(first)first.click();
 }
+

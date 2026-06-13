@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Deren Photobooth</title>
+  <title>SkyBooth — Create Beautiful Photobooth Memories</title>
   <meta name="description" content="SkyBooth — platform photobooth digital gratis. Upload 1–5 foto, 14 template eksklusif, filter, teks, foto via kamera, download HD.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,12 +116,12 @@
       </article>
       <article class="feat-card">
         <div class="feat-icon"><i class="fa-solid fa-table-cells-large"></i></div>
-        <h3 class="feat-title">14 Template Unik</h3>
+        <h3 class="feat-title">30 Template Unik</h3>
         <p class="feat-desc">Setiap template punya karakter berbeda — dari minimalis elegan, vintage, dark mode, hingga penuh warna dan festif.</p>
       </article>
       <article class="feat-card">
         <div class="feat-icon"><i class="fa-solid fa-sliders"></i></div>
-        <h3 class="feat-title">Edit &amp; 9 Filter</h3>
+        <h3 class="feat-title">Edit &amp; 9+ Filter</h3>
         <p class="feat-desc">Zoom, rotasi semua foto sekaligus, brightness, contrast. Filter: Original, B&amp;W, Vintage, Warm, Cool, Faded, Vivid, Matte, Chrome.</p>
       </article>
       <article class="feat-card">
@@ -157,6 +157,7 @@
         <button class="tool-btn" data-tool="filter"   title="Filter"><i class="fa-solid fa-wand-sparkles"></i><span>Filter</span></button>
         <div class="tool-div"></div>
         <button class="tool-btn" data-tool="template" title="Template"><i class="fa-solid fa-table-cells-large"></i><span>Tmplat</span></button>
+        <button class="tool-btn" data-tool="ar" title="AR Filter Wajah"><i class="fa-solid fa-face-smile"></i><span>AR</span></button>
         <button class="tool-btn" data-tool="frame" title="Frame Lucu"><i class="fa-solid fa-face-laugh"></i><span>Frame</span></button>
         <button class="tool-btn" data-tool="sticker" title="Stiker"><i class="fa-solid fa-face-smile-wink"></i><span>Stiker</span></button>
         <button class="tool-btn" data-tool="text"     title="Teks"><i class="fa-solid fa-font"></i><span>Teks</span></button>
@@ -196,6 +197,7 @@
           <button class="sb-tab"        data-panel="panelAdjust">Adjust</button>
           <button class="sb-tab"        data-panel="panelFilter">Filter</button>
           <button class="sb-tab"        data-panel="panelTemplate">Tmplat</button>
+          <button class="sb-tab"        data-panel="panelAr">AR</button>
           <button class="sb-tab"        data-panel="panelFrame">Frame</button>
           <button class="sb-tab"        data-panel="panelSticker">Stiker</button>
           <button class="sb-tab"        data-panel="panelText">Teks</button>
@@ -263,6 +265,19 @@
           <div class="p-sec">
             <span class="p-lbl">Pilih Template</span>
             <div class="tpl-grid" id="tplGrid"></div>
+          </div>
+        </div>
+
+        <!-- PANEL: AR FILTER -->
+        <div class="sb-panel" id="panelAr">
+          <div class="p-sec">
+            <span class="p-lbl">AR Face Filter</span>
+            <p style="font-size:.74rem;color:var(--text-muted);line-height:1.55;margin-bottom:12px">Filter otomatis mengikuti posisi wajah di foto. Juga aktif saat live kamera.</p>
+            <div class="ar-grid" id="arFilterGrid"></div>
+          </div>
+          <div class="p-sec" style="margin-top:4px">
+            <span class="p-lbl">Tips</span>
+            <p style="font-size:.74rem;color:var(--text-muted);line-height:1.55">Pilih filter lalu upload foto atau ambil via kamera. Filter muncul otomatis di atas kepala. Untuk hasil terbaik gunakan foto portrait wajah jelas.</p>
           </div>
         </div>
 
@@ -392,7 +407,7 @@
             <!-- Copy number -->
             <span class="p-lbl" style="display:block;margin-bottom:8px">Nomor Tujuan</span>
             <div class="support-copy-row">
-              <input type="text" class="support-copy-input" id="suppNum" readonly value="081234567890">
+              <input type="text" class="support-copy-input" id="suppNum" readonly value="085829724708">
               <button class="btn btn-outline btn-sm" id="btnCopyNum"><i class="fa-solid fa-copy"></i> Salin</button>
             </div>
 
@@ -461,8 +476,8 @@
         <ul>
           <li><a href="#editor">Upload 1–5 Foto</a></li>
           <li><a href="#editor">Foto via Kamera</a></li>
-          <li><a href="#editor">14 Template</a></li>
-          <li><a href="#editor">9 Filter Foto</a></li>
+          <li><a href="#editor">30 Template</a></li>
+          <li><a href="#editor">9+ Filter Foto</a></li>
           <li><a href="#editor">QR Code &amp; Share</a></li>
         </ul>
       </div>
@@ -477,7 +492,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 SkyBooth. Dibuat dengan sepenuh hati untuk semua momen spesial.</p>
+      <p>&copy; 2026 SkyBooth. Dibuat dengan sepenuh hati untuk semua momen spesial.</p>
       <div class="footer-bl">
         <a href="#support">Support</a>
         <a href="#">Privasi</a>
@@ -532,9 +547,13 @@
       <button class="cam-close" id="btnCamClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="cam-body">
-      <video id="camVideo" autoplay playsinline muted style="width:100%;max-height:310px;border-radius:12px;background:#000;display:block"></video>
+      <div style="position:relative;width:100%">
+        <video id="camVideo" autoplay playsinline muted style="width:100%;max-height:310px;border-radius:12px;background:#000;display:block"></video>
+        <canvas id="camArCanvas" style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;border-radius:12px"></canvas>
+      </div>
       <p class="cam-target">Mengisi slot: <strong id="camTargetLbl">Foto 1</strong></p>
       <div class="cam-ctrls">
+        <select id="camArSel" style="padding:6px 10px;border-radius:7px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2);font-size:.78rem;cursor:pointer;outline:none"><option value="none">🚫 No AR Filter</option></select>
         <button class="cam-switch" id="btnCamSwitch"><i class="fa-solid fa-arrows-rotate"></i> Ganti Kamera</button>
         <button class="cam-mirror" id="btnCamMirror"><i class="fa-solid fa-left-right"></i> Mirror</button>
         <button class="cam-shutter" id="btnCamShutter"><i class="fa-solid fa-camera"></i></button>

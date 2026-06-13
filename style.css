@@ -358,3 +358,12 @@ input,select,textarea{font-family:var(--fb)} ul{list-style:none}
 
 /* Tool btn for sticker + frame */
 .tool-btn[data-tool="frame"] i,.tool-btn[data-tool="sticker"] i{font-size:.88rem}
+
+/* ═══════ AR FILTER PANEL ═══════ */
+.ar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ar-item{border-radius:var(--r);border:2px solid var(--border);cursor:pointer;transition:all var(--tr);padding:10px 6px;text-align:center;background:#fff;display:flex;flex-direction:column;align-items:center;gap:5px}
+.ar-item:hover,.ar-item.sel{border-color:var(--sky-dark);background:var(--sky-pale)}
+.ar-item.sel{box-shadow:0 0 0 2px var(--sky-dark)}
+.ar-icon{font-size:1.6rem;line-height:1}
+.ar-lbl{font-size:.65rem;font-weight:500;color:var(--text-light);line-height:1.2}
+.ar-item.sel .ar-lbl{color:var(--sky-dark)}
